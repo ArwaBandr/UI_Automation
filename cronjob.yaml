@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: behave-ui-test
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: behave-container
+              image: my-behave-image:latest
+              imagePullPolicy: IfNotPresent
+              command: ["behave"]
+          restartPolicy: Never
