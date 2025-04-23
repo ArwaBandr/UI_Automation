@@ -14,9 +14,10 @@ spec:
               imagePullPolicy: IfNotPresent
               env:
                 - name: BASE_URL
-                  value: "SDAIA"
-                - name: DEMO_FAREWELL
-                  value: "Such a sweet sorrow"
-
+                  value: "https://sdaia.gov.sa/en/"
+                - name: MAIN_PAGE
+                  value: "default.aspx#"
+                - name: SEARCH_RESULT_PAGE
+                  value: "Search/Pages/results.aspx?"
               command: ["behave"]
           restartPolicy: Never
