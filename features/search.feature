@@ -1,9 +1,12 @@
 Feature: search functionality
+
+  @positive
   Scenario: The user can search and see the correct result
     Given The user open the page and clicks on the search icon
     When The user enter a valid search query
     Then The search result should be displayed
 
+    @negative
   Scenario: The user can see a text to indicate that there is no result
     Given The user open the page and clicks on the search icon
     When The user enter an invalid search query
@@ -28,3 +31,9 @@ Feature: search functionality
      Given The user open the page and clicks on the search icon
      When The user enter a huge number characters in the search field
      Then The system should reject the users request
+
+   @Positive
+   Scenario: The search result contains the test the user entered
+     Given The user open the page and clicks on the search icon
+     When The user enter a valid search query to loop through the result content
+     Then The query result must contains the user search text

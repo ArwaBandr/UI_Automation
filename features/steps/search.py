@@ -62,3 +62,13 @@ def huge_letters_search(context):
     search_input = "H" * 10000
     context.searchPage.enter_search_query(search_input)
     context.searchPage.submit_search()
+
+@when('The user enter a valid search query to loop through the result content')
+def search_input(context):
+    context.search_input = "about"
+    context.search_content =context.searchPage.enter_search_query(context.search_input)
+    context.searchPage.submit_search()
+
+@then('The query result must contains the user search text')
+def validate_content(context):
+    context.searchPage.validate_search_content(context.search_input)

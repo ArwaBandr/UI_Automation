@@ -12,5 +12,11 @@ spec:
             - name: behave-container
               image: my-behave-image:latest
               imagePullPolicy: IfNotPresent
+              env:
+                - name: BASE_URL
+                  value: "SDAIA"
+                - name: DEMO_FAREWELL
+                  value: "Such a sweet sorrow"
+
               command: ["behave"]
           restartPolicy: Never

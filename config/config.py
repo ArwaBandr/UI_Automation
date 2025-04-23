@@ -1,7 +1,8 @@
 #https://sdaia.gov.sa/en/Search/Pages/results.aspx?k=sdaia
 #https://sdaia.gov.sa/en/default.aspx#
-
-BASE_URL ='https://sdaia.gov.sa/en/'
-
-MAIN_PAGE = 'default.aspx#'
-SEARCH_RESULT_PAGE = 'Search/Pages/results.aspx?'
+import os
+from dotenv import load_dotenv
+load_dotenv()
+BASE_URL =os.getenv("BASE_URL")
+MAIN_PAGE = os.getenv("MAIN_PAGE")
+SEARCH_RESULT_PAGE =os.getenv("SEARCH_RESULT_PAGE")
