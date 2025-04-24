@@ -2,8 +2,7 @@ from behave import given, when, then
 from features.pages.search_page import searchPage
 from config import config
 import logging
-
-
+from features.utils.data_loader import load_test_data
 @given('The user open the page and clicks on the search icon')
 def open_page(context):
     logging.info("User opens the website and clicks on the search icon")
@@ -13,7 +12,8 @@ def open_page(context):
 
 @when('The user enter a valid search query')
 def search_query(context):
-    context.searchPage.enter_search_query("AI")
+   # context.searchPage.enter_search_query("AI")
+    context.searchPage.enter_search_query()
     context.searchPage.submit_search()
 
 
@@ -25,7 +25,10 @@ def verify_valid_result(context):
 
 @when('The user enter an invalid search query')
 def invalid_search(context):
-    context.searchPage.enter_search_query("tadaia")
+ #   context.searchPage.enter_search_query("tadaia")
+    test_data =load_test_data("search_test.json")
+    mysearch= test_data[0]["search1"]
+    context.searchPage.enter_search_query(mysearch)
     context.searchPage.submit_search()
 
 
